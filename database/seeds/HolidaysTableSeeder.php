@@ -16,7 +16,13 @@ class HolidaysTableSeeder extends Seeder
     {
         for ($i = 0; $i < 10; $i++) {
             $newholiday = new Holiday();
-            $newholiday->name = $faker->name;
+            $newholiday->nome = $faker->name();
+            $newholiday->email = $faker->email();
+            $newholiday->destinazione = $faker->text(50);
+            $newholiday->prezzo = $faker->randomNumber(3, true);
+            $newholiday->pagamentocarte = $faker->creditCardType();
+
+            $newholiday->save();
         }
     }
 }
